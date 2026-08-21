@@ -156,6 +156,10 @@ body {
 .post {
   overflow: hidden;
   margin-bottom: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 8px;
+  align-items: baseline;
   text-align: left;
 }
 
@@ -176,9 +180,15 @@ body {
 
 .post-title {
   margin: 0;
-  font-size: 1.75rem;
+  font-size: 32px;
   line-height: 1.2;
   text-align: left;
+}
+
+.posts-section .post-title {
+  margin: 0;
+  font-size: 32px;
+  letter-spacing: 0;
 }
 
 .post-title a {
@@ -191,12 +201,17 @@ body {
 }
 
 .post-meta {
-  margin-top: -0.2em;
+  margin-top: 0;
   margin-bottom: 0;
   color: var(--text-secondary);
   font-size: 0.875rem;
   line-height: 1.2;
-  text-align: left;
+  text-align: right;
+}
+
+.post-content {
+  flex-basis: 100%;
+  padding-top: 12px;
 }
 
 .post-date {
@@ -224,6 +239,7 @@ body {
 
 .post-content p {
   margin: 0.6em 0;
+  font-size: 17px;
   text-align: left;
 }
 
