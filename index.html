@@ -59,7 +59,7 @@ fetch("./text.json")
 			const paragraphs = Array.isArray(post.body) ? post.body : [];
 			paragraphs.forEach(paragraph => {
 				const element = document.createElement("p");
-				element.textContent = paragraph;
+				element.innerHTML = paragraph;
 				content.appendChild(element);
 			});
 
