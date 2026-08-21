@@ -12,6 +12,7 @@
 <h1 class="site-title"><a href="#">贾生的空间</a></h1>
 <nav class="site-nav">
 <a href="mailto:SonettoSakuraba@icloud.com">SonettoSakuraba@iCloud.com</a>
+<button class="menu-toggle" type="button" aria-label="展开菜单" aria-expanded="false"></button>
 </nav>
 </div>
 </header>
@@ -68,6 +69,19 @@ fetch("./text.json")
 	.catch(error => {
 		document.getElementById("posts-list").textContent = error.message;
 	});
+</script>
+<script>
+const menuToggle = document.querySelector(".menu-toggle");
+const siteNav = document.querySelector(".site-nav");
+const siteHeader = document.querySelector(".site-header");
+
+menuToggle.addEventListener("click", () => {
+	const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+	menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+	menuToggle.setAttribute("aria-label", isExpanded ? "展开菜单" : "收起菜单");
+	siteNav.classList.toggle("is-open", !isExpanded);
+	siteHeader.classList.toggle("is-open", !isExpanded);
+});
 </script>
 </body>
 </html>
