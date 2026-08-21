@@ -45,6 +45,11 @@ class BlogEditorApp:
         ttk.Button(frame_btn_left, text="➕新增文章", command=self.add_new_article).pack(side=tk.LEFT, expand=True, fill=tk.X)
         ttk.Button(frame_btn_left, text="🗑删除文章", command=self.delete_article).pack(side=tk.LEFT, expand=True, fill=tk.X)
 
+        frame_order = ttk.Frame(frame_left)
+        frame_order.pack(fill=tk.X, padx=4, pady=(0, 4))
+        ttk.Button(frame_order, text="⬆上移", command=lambda: self.move_article(-1)).pack(side=tk.LEFT, expand=True, fill=tk.X)
+        ttk.Button(frame_order, text="⬇下移", command=lambda: self.move_article(1)).pack(side=tk.LEFT, expand=True, fill=tk.X)
+
         # 右侧编辑区
         frame_right = ttk.LabelFrame(main_pane, text="编辑文章")
         main_pane.add(frame_right, weight=2)
@@ -177,6 +182,27 @@ class BlogEditorApp:
         self.clear_editor()
         self.refresh_article_list()
         self.refresh_preview()
+
+    def move_article(self, offset):
+        if self.selected_article_idx is None:
+            messagebox.showwarning("提示", "请先选中一篇文章")
+            return
+
+        old_idx = self.selected_article_idx
+        new_idx = old_idx + offset
+        if new_idx < 0 or new_idx >= len(self.blog_data):
+            return
+
+        self.blog_data[old_idx], self.blog_data[new_idx] = (
+            self.blog_data[new_idx], self.blog_data[old_idx]
+        )
+        self.selected_article_idx = new_idx
+        self.refresh_article_list()
+        self.refresh_preview()
+        self.listbox_articles.select_set(new_idx)
+        self.listbox_articles.activate(new_idx)
+        self.listbox_articles.see(new_idx)
+        self.on_select_article(None)
 
     def apply_change(self):
         if self.selected_article_idx is None:
