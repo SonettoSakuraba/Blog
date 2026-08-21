@@ -27,7 +27,7 @@ body {
     "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.7;
+  line-height: 1.6;
   text-align: left; /* 全局左对齐 */
 }
 
@@ -54,14 +54,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 12px;
+  padding-left: 0;
 }
 
 .site-title {
   margin: 0;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: -0.5px;
   text-align: left;
 }
 
@@ -71,15 +73,18 @@ body {
 }
 
 .site-nav {
-  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-left: auto;
   padding: 16px 0;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .site-nav a {
-  margin-left: 20px;
   color: var(--text-secondary);
   text-decoration: none;
+  font-weight: 400;
 }
 
 .site-nav a:hover {
@@ -89,21 +94,90 @@ body {
 /* 主体 */
 .site-main {
   flex: 1;
-  padding: 120px 0 80px;
+  padding: 96px 0 0;
   background: var(--bg);
   text-align: left;
 }
 
+.hero {
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero h1 {
+  margin: 0 0 16px;
+  font-size: 52px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+.hero p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.posts-section,
+.about-section,
+.contact-section {
+  padding: 80px 5%;
+}
+
+.posts-container {
+  max-width: 1200px;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+.posts-section h2,
+.about-section h2,
+.contact-section h2 {
+  margin: 0 0 40px;
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
 /* 文章列表 */
 .post {
+  overflow: hidden;
   margin-bottom: 48px;
   text-align: left;
 }
 
+.post-card {
+  overflow: hidden;
+}
+
+.post-image {
+  height: 200px;
+  background: var(--pink-bg-soft);
+}
+
+.post-card h3 {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+}
+
 .post-title {
-  margin: 0 0 8px;
+  margin: 0;
   font-size: 1.75rem;
-  line-height: 1.3;
+  line-height: 1.2;
   text-align: left;
 }
 
@@ -117,10 +191,21 @@ body {
 }
 
 .post-meta {
-  margin-bottom: 24px;
+  margin-top: -0.2em;
+  margin-bottom: 0;
   color: var(--text-secondary);
   font-size: 0.875rem;
+  line-height: 1.2;
   text-align: left;
+}
+
+.post-date {
+  font-size: 14px;
+}
+
+.post-excerpt {
+  color: var(--text-secondary);
+  font-size: 15px;
 }
 
 /* 文章正文排版 */
@@ -138,8 +223,115 @@ body {
 }
 
 .post-content p {
-  margin: 1.2em 0;
+  margin: 0.6em 0;
   text-align: left;
+}
+
+.post-content p:first-child {
+  margin-top: -0.2em;
+}
+
+.about-section p {
+  font-size: 16px;
+}
+
+.about-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-section form {
+  display: grid;
+  gap: 24px;
+  max-width: 600px;
+}
+
+.contact-form {
+  display: grid;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-section label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.contact-section input,
+.contact-section textarea {
+  width: 100%;
+  padding: 12px;
+  font: inherit;
+  font-size: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.contact-section button {
+  width: fit-content;
+  padding: 10px 20px;
+  color: #ffffff;
+  background: var(--accent);
+  border: 0;
+  border-radius: var(--radius);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.site-footer {
+  padding-top: 60px;
+  background: var(--pink-bg);
+  color: var(--text-secondary);
+}
+
+.footer-content {
+  display: grid;
+  gap: 40px;
+  padding: 0 5% 40px;
+}
+
+.footer-section ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-bottom {
+  padding: 20px 5%;
+  text-align: center;
+}
+
+.site-footer h3 {
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.site-footer p,
+.site-footer a,
+.site-footer li,
+.social-links a {
+  font-size: 14px;
+}
+
+.site-footer ul {
+  padding: 0;
+}
+
+.site-footer small {
+  font-size: 12px;
 }
 
 .post-content a {
@@ -236,16 +428,53 @@ body {
   }
 
   .site-header .container {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
   }
 
   .site-nav a {
     margin-left: 0;
-    margin-right: 16px;
   }
 
   .post-title {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-nav {
+    gap: 16px;
+  }
+
+  .about-section {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero p {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-nav {
+    gap: 12px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .posts-section h2,
+  .about-section h2,
+  .contact-section h2 {
+    font-size: 32px;
   }
 }

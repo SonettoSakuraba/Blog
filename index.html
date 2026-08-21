@@ -1,30 +1,26 @@
 <!DOCTYPE html>
-<html lang="zh‑CN">
+<html lang="zh-CN">
 <head>
-<meta charset="UTF‑8">
-<title>CSS测试</title>
+<meta charset="UTF-8">
+<title>贾生的空间</title>
 <link rel="stylesheet" href="./Style.css">
 </head>
 <body>
 <header class="site-header">
 <div class="container">
-<h1 class="site-title"><a href="#">我的博客</a></h1>
+<h1 class="site-title"><a href="#">贾生的空间</a></h1>
 <nav class="site-nav">
-<a href="#">首页</a>
-<a href="#">关于</a>
+<a href="https://qm.qq.com/q/Af9nHHsKre" target="_blank" rel="noopener noreferrer">访问</a>
 </nav>
 </div>
 </header>
 
 <main class="site-main">
+<section id="posts" class="posts-section">
 <div class="container">
-<article class="post">
-<h2 class="post-title"><a id="post-title" href="#"></a></h2>
-<div id="post-date" class="post-meta"></div>
-<div id="post-body" class="post-content"></div>
+<div id="posts-list"></div>
 </div>
-</article>
-</div>
+</section>
 </main>
 
 <script>
@@ -35,19 +31,41 @@ fetch("./text.json")
 		}
 		return response.json();
 	})
-	.then(post => {
-		document.getElementById("post-title").textContent = post.title;
-		document.getElementById("post-date").textContent = post.date;
+	.then(posts => {
+		const postsList = document.getElementById("posts-list");
+		const postsToRender = (Array.isArray(posts) ? posts : [posts])
+			.filter(post => post && post.title && post.date)
+			.sort((firstPost, secondPost) =>
+				new Date(secondPost.date) - new Date(firstPost.date)
+			);
 
-		const postBody = document.getElementById("post-body");
-		post.body.forEach(paragraph => {
-			const element = document.createElement("p");
-			element.textContent = paragraph;
-			postBody.appendChild(element);
+		postsToRender.forEach(post => {
+			const article = document.createElement("article");
+			article.className = "post";
+
+			const title = document.createElement("h2");
+			title.className = "post-title";
+			title.textContent = post.title;
+
+			const date = document.createElement("div");
+			date.className = "post-meta";
+			date.textContent = post.date;
+
+			const content = document.createElement("div");
+			content.className = "post-content";
+			const paragraphs = Array.isArray(post.body) ? post.body : [];
+			paragraphs.forEach(paragraph => {
+				const element = document.createElement("p");
+				element.textContent = paragraph;
+				content.appendChild(element);
+			});
+
+			article.append(title, date, content);
+			postsList.appendChild(article);
 		});
 	})
 	.catch(error => {
-		document.getElementById("post-body").textContent = error.message;
+		document.getElementById("posts-list").textContent = error.message;
 	});
 </script>
 </body>
