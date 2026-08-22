@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>贾生的空间</title>
+<script>
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "light" || savedTheme === "dark") {
+	document.documentElement.dataset.theme = savedTheme;
+}
+</script>
 <link rel="stylesheet" href="./Style.css">
 <link rel="icon" href="./icon.ico" type="image/x-icon">
 </head>
@@ -13,6 +19,7 @@
 <h1 class="site-title"><a href="#">贾生的空间</a></h1>
 <nav class="site-nav">
 <a href="mailto:SonettoSakuraba@icloud.com">SonettoSakuraba@iCloud.com</a>
+<button class="theme-toggle" type="button" aria-label="切换为深色模式"></button>
 <button class="menu-toggle" type="button" aria-label="展开菜单" aria-expanded="false"></button>
 </nav>
 </div>
@@ -73,8 +80,31 @@ fetch("./text.json")
 </script>
 <script>
 const menuToggle = document.querySelector(".menu-toggle");
+const themeToggle = document.querySelector(".theme-toggle");
 const siteNav = document.querySelector(".site-nav");
 const siteHeader = document.querySelector(".site-header");
+
+const getPreferredTheme = () => {
+	const savedTheme = localStorage.getItem("theme");
+	return savedTheme === "light" || savedTheme === "dark"
+		? savedTheme
+		: (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+};
+
+const updateThemeToggle = () => {
+	const isDark = getPreferredTheme() === "dark";
+	themeToggle.textContent = isDark ? "浅色模式" : "深色模式";
+	themeToggle.setAttribute("aria-label", isDark ? "切换为浅色模式" : "切换为深色模式");
+};
+
+updateThemeToggle();
+
+themeToggle.addEventListener("click", () => {
+	const nextTheme = getPreferredTheme() === "dark" ? "light" : "dark";
+	document.documentElement.dataset.theme = nextTheme;
+	localStorage.setItem("theme", nextTheme);
+	updateThemeToggle();
+});
 
 menuToggle.addEventListener("click", () => {
 	const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
