@@ -30,15 +30,6 @@
     ]
   },
   {
-    "title": "不赖",
-    "date": "2026-08-22",
-    "body": [
-      "经过一段时间的编辑，网页终于初具人形了！（虽然这样说很诡异）。但是无论如何也是实打实的好事啊！",
-      "因此我决定再放一个专辑试试看",
-      "<iframe allow=\"autoplay *; encrypted-media *; fullscreen *; clipboard-write\" frameborder=\"0\" height=\"450\" style=\"width:100%;max-width:660px;overflow:hidden;border-radius:10px;\" sandbox=\"allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation\" src=\"https://embed.music.apple.com/cn/album/1842095381\"></iframe>"
-    ]
-  },
-  {
     "title": "无人问津",
     "date": "2026-08-22",
     "body": [
@@ -48,6 +39,15 @@
       "可河面宽得很，纸船太小了。",
       "那回声里，先前的潮水退了下去，露出底下湿漉漉的滩涂。没有了，全没有了。那种非说不可的急切，那种自以为是的得意，都像隔夜的茶，凉了，涩了，没味儿了。",
       "然后忽然就笑了。"
+    ]
+  },
+  {
+    "title": "不赖",
+    "date": "2026-08-22",
+    "body": [
+      "经过一段时间的编辑，网页终于初具人形了！（虽然这样说很诡异）。但是无论如何也是实打实的好事啊！",
+      "因此我决定再放一个专辑试试看",
+      "<iframe allow=\"autoplay *; encrypted-media *; fullscreen *; clipboard-write\" frameborder=\"0\" height=\"450\" style=\"width:100%;max-width:660px;overflow:hidden;border-radius:10px;\" sandbox=\"allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation\" src=\"https://embed.music.apple.com/cn/album/1842095381\"></iframe>"
     ]
   },
   {
@@ -65,6 +65,13 @@
       "<iframe allow=\"autoplay *; encrypted-media *; fullscreen *; clipboard-write\" frameborder=\"0\" height=\"175\" style=\"width:100%;max-width:660px;overflow:hidden;border-radius:10px;\" sandbox=\"allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation\" src=\"https://embed.music.apple.com/cn/song/amore/6788717438\"></iframe>",
       "--Amare",
       "（本来还想要添加一个wyy的播放外链的，结果人家不同意。那就算了）"
+    ]
+  },
+  {
+    "title": "I'm pretty happy",
+    "date": "2026-08-22",
+    "body": [
+      "Hahaha"
     ]
   }
 ]
