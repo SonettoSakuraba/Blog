@@ -21,7 +21,7 @@
     --accent: #72b7ff;
     --pink-bg: #0b3d73;
     --pink-bg-soft: #092b50;
-    --header-bg: #1E1E24;
+    --header-bg: rgba(30, 30, 36, 0.78);
     color-scheme: dark;
   }
 }
@@ -46,7 +46,7 @@
   --accent: #72b7ff;
   --pink-bg: #0b3d73;
   --pink-bg-soft: #092b50;
-  --header-bg: #1E1E24;
+  --header-bg: rgba(30, 30, 36, 0.78);
   color-scheme: dark;
 }
 
@@ -593,7 +593,7 @@ body {
     opacity: 1;
     max-height: 48px;
     pointer-events: auto;
-    transform: translateY(0);
+    transform: translateY(30px);
   }
 
   .site-nav.is-open .theme-toggle {
@@ -609,7 +609,7 @@ body {
     opacity: 1;
     max-height: 48px;
     pointer-events: auto;
-    transform: translateY(0);
+    transform: translateY(30px);
   }
 
   .site-nav.is-open {
