@@ -21,4 +21,7 @@
 - 如果有任何疑问，欢迎通过邮件沟通。本Blog作者不常用issue功能，本仓库也不接受pr。
 
 ## 联系方式
-请通过邮箱联系，谢谢。想要通过邮箱练习，请查看Blog，谢谢。😋
+请通过邮箱联系，谢谢。想要通过邮箱联系，请查看Blog，谢谢。😋
+
+## 注意事项
+If you are not a chinese and you cannot understand what is this, please tell me and copy the README to AI, i might have made a typo T^T
