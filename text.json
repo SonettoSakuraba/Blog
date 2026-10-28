@@ -281,7 +281,15 @@
     "date": "2026-09-28",
     "body": [
       "对只有人类有意识不满而进行的一些思索",
-      "<iframe src=\"https://sonettosakuraba.github.io/image-blog/%E6%84%8F%E8%AF%86%E7%9A%84%E6%BC%94%E5%8C%96.pdf\" width=\"100%\" height=\"600\"></iframe>"
+      "<iframe src=\"https://sonettosakuraba.github.io/image-blog/%E6%84%8F%E8%AF%86%E7%9A%84%E6%BC%94%E5%8C%96.pdf\" width=\"100%\" height=\"600\"></iframe>",
+      "<p><a href=\"https://sonettosakuraba.github.io/image-blog/%E6%84%8F%E8%AF%86%E7%9A%84%E6%BC%94%E5%8C%96.pdf\" download>点击下载文件</a></p>"
+    ]
+  },
+  {
+    "title": "更新新版本？！",
+    "date": "2026-10-28",
+    "body": [
+      "给iframe的pdf添加了下载的链接，防止浏览器无法正常访问。"
     ]
   }
 ]
